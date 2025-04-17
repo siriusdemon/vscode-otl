@@ -1,6 +1,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import * as fs from 'fs';
+import * as path from 'path';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -19,7 +21,26 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from vscode-otl!');
 	});
 
+	const filePath = path.join(context.extensionPath, 'src', 'builtin.json');
+	const raw = fs.readFileSync(filePath, 'utf8');
+	const funcList = JSON.parse(raw);
+	const provider = vscode.languages.registerCompletionItemProvider(
+	    'otl', // 
+    	{
+			 provideCompletionItems(document, position) {
+        return funcList.map((func: any) => {
+          const item = new vscode.CompletionItem(func.name, vscode.CompletionItemKind.Function);
+          item.detail = func.detail;
+          item.insertText = new vscode.SnippetString(func.insertText);
+          item.documentation = new vscode.MarkdownString(func.documentation);
+          return item;
+        });
+	}
+    },
+    '' // means triggle at any character
+  );
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(provider);
 }
 
 // This method is called when your extension is deactivated

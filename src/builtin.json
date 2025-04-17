@@ -1,0 +1,26 @@
+[
+  {
+    "name": "myLog",
+    "detail": "日志输出函数",
+    "insertText": "myLog(${1:message});",
+    "documentation": "输出日志信息，用于调试。"
+  },
+  {
+    "name": "sum",
+    "detail": "求和函数",
+    "insertText": "sum(${1:a}, ${2:b});",
+    "documentation": "返回两个数的和。"
+  },
+  {
+    "name": "initSystem",
+    "detail": "系统初始化",
+    "insertText": "initSystem();",
+    "documentation": "初始化系统模块，必须在主程序开始前调用。"
+  },
+  {
+    "name": "getTime",
+    "detail": "获取当前时间",
+    "insertText": "getTime(${1:format});",
+    "documentation": "返回当前时间字符串，可指定格式，例如 'HH:mm:ss'"
+  }
+]
