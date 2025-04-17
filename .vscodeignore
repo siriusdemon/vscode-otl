@@ -9,3 +9,8 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 **/.vscode-test.*
+**/pnpm-lock.yaml
+**/package-lock.json
+**/yarn.lock
+**/*.test.*
+**/test/**

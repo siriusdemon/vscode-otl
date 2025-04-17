@@ -9,7 +9,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": ["onLanguage:otl"],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

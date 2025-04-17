@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Hello World from vscode-otl!');
 	});
 
-	const filePath = path.join(context.extensionPath, 'src', 'builtin.json');
+	const filePath = path.join(context.extensionPath, 'data', 'builtin.json');
 	const raw = fs.readFileSync(filePath, 'utf8');
 	const funcList = JSON.parse(raw);
 	const provider = vscode.languages.registerCompletionItemProvider(
